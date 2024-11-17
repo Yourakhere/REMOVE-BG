@@ -1,0 +1,134 @@
+ 
+  
+   
+   .card {
+     background: #191c29;
+     width: var(--card-width);
+     height: var(--card-height);
+     padding: 3px;
+     position: relative;
+     border-radius: 6px;
+     justify-content: center;
+     align-items: center;
+     text-align: center;
+     display: flex;
+     font-size: 1.5em;
+     color: rgb(88 199 250 / 0%);
+     cursor: pointer;
+     font-family: cursive;
+   }
+   
+   .card:hover {
+     color: rgb(88 199 250 / 100%);
+     transition: color 1s;
+   }
+   .card:hover:before, .card:hover:after {
+     animation: none;
+     opacity: 0;
+   }
+   
+   
+   .card::before {
+     content: "";
+     width: 104%;
+     height: 102%;
+     border-radius: 8px;
+     background-image: linear-gradient(
+       var(--rotate)
+       , #5ddcff, #3c67e3 43%, #4e00c2);
+       position: absolute;
+       z-index: -1;
+       top: -1%;
+       left: -2%;
+       animation: spin 2.5s linear infinite;
+   }
+   
+   .card::after {
+     position: absolute;
+     content: "";
+     top: calc(var(--card-height) / 6);
+     left: 0;
+     right: 0;
+     z-index: -1;
+     height: 100%;
+     width: 100%;
+     margin: 0 auto;
+     transform: scale(0.8);
+     filter: blur(calc(var(--card-height) / 6));
+     background-image: linear-gradient(
+       var(--rotate)
+       , #5ddcff, #3c67e3 43%, #4e00c2);
+       opacity: 1;
+     transition: opacity .5s;
+     animation: spin 2.5s linear infinite;
+   }
+   
+   @keyframes spin {
+     0% {
+       --rotate: 0deg;
+     }
+     100% {
+       --rotate: 360deg;
+     }
+   }
+    
+
+   body {
+    min-height: 100vh;
+    background: #212534;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    box-sizing: border-box;
+  }
+  
+  .container {
+    margin-top: 2%;
+  }
+  
+  #filepicker {
+    border-radius: none;
+  }
+  
+  .picker {
+    margin-left: 101%;
+  }
+  
+  .form-group {
+    border-radius: none;
+    color: #eeda82;
+    border-color: black;
+  }
+  
+  .label {
+    font-size: 40px;
+  }
+  
+  .btn-upload, .btn-Download, .btn-refresh {
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    background-color: black;
+    border-radius: 4rem;
+    font-size: 1.6rem;
+    color: #eeda82;
+    letter-spacing: 0.3rem;
+    font-weight: 60;
+    border: 2px solid #eeda82;
+    transition: 0.3s ease;
+    cursor: pointer;
+    margin-top: 1%; 
+  }
+  
+  .btn-upload:hover, .btn-Download:hover, .btn-refresh:hover {
+    transform: scale3d(1.03);
+    background-color: #eeda82;
+    color: black;
+    box-shadow: 0 0 25px #eeda82;
+  }
+     
+  #img {
+    max-width: 300px; 
+    border: 1px solid #ccc;
+  }
